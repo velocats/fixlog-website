@@ -27,7 +27,24 @@
       <div class="grid two">
         <article class="card">
           <h2>Contact</h2>
-          <p>Email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>.</p>
+          <p>Email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>, or use the form below to open a pre-addressed email.</p>
+          <form class="contact-form" action="mailto:support@fixlogapp.com" method="post" enctype="text/plain">
+            <label for="support-name">Name</label>
+            <input id="support-name" name="name" type="text" autocomplete="name">
+            <label for="support-email">Email</label>
+            <input id="support-email" name="email" type="email" autocomplete="email">
+            <label for="support-topic">Topic</label>
+            <select id="support-topic" name="topic">
+              <option>General question</option>
+              <option>Bug report</option>
+              <option>Pro purchase or restore</option>
+              <option>Backups, exports, or data</option>
+              <option>QR codes or labels</option>
+            </select>
+            <label for="support-message">Message</label>
+            <textarea id="support-message" name="message" rows="6" placeholder="Tell us what you were trying to do and what happened."></textarea>
+            <button class="button primary" type="submit">Email Support</button>
+          </form>
         </article>
         <article class="card">
           <h2>Helpful Details</h2>
@@ -38,6 +55,10 @@
             <li>Screenshots if they help explain the problem</li>
             <li>Whether the issue involves assets, reminders, QR codes, backups, exports, or Pro unlock</li>
           </ul>
+          <div class="mini-faq">
+            <h3>Before you write</h3>
+            <p>For data questions, mention whether you are asking about assets, maintenance history, backups, CSV exports, documents, or QR labels.</p>
+          </div>
         </article>
       </div>
     </section>
