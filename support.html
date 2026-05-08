@@ -7,6 +7,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon.png">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .form-helper {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -38,6 +52,7 @@
             <label for="support-topic">Topic</label>
             <select id="support-topic" name="topic">
               <option>General question</option>
+              <option>Feature request</option>
               <option>Bug report</option>
               <option>Pro purchase or restore</option>
               <option>Backups, exports, or data</option>
@@ -45,7 +60,11 @@
             </select>
             <label for="support-message">Message</label>
             <textarea id="support-message" name="message" rows="6" placeholder="Tell us what you were trying to do and what happened."></textarea>
-            <button class="button primary" type="submit">Email Support</button>
+            <div class="form-actions">
+              <a class="button primary" id="support-mail-link" href="mailto:support@fixlogapp.com">Email Support</a>
+              <a class="button" href="mailto:support@fixlogapp.com">Open Blank Email</a>
+            </div>
+            <p class="form-helper">If your browser does not open an email app, email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a> directly and paste your message.</p>
           </form>
         </article>
         <article class="card">
@@ -70,24 +89,29 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       var form = document.getElementById('support-form');
-      if (!form) return;
+      var mailLink = document.getElementById('support-mail-link');
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+      if (!form || !mailLink) return;
 
-        var name = document.getElementById('support-name').value.trim();
-        var email = document.getElementById('support-email').value.trim();
-        var topic = document.getElementById('support-topic').value.trim();
-        var message = document.getElementById('support-message').value.trim();
+      function valueFor(id) {
+        var field = document.getElementById(id);
+        return field ? field.value.trim() : '';
+      }
 
-        var subject = 'FixLog Support - ' + (topic || 'General question');
+      function buildMailto() {
+        var name = valueFor('support-name');
+        var email = valueFor('support-email');
+        var topic = valueFor('support-topic') || 'General question';
+        var message = valueFor('support-message');
+
+        var subject = 'FixLog Support - ' + topic;
         var body = [
-          'Name: ' + (name || ''),
-          'Email: ' + (email || ''),
-          'Topic: ' + (topic || ''),
+          'Name: ' + name,
+          'Email: ' + email,
+          'Topic: ' + topic,
           '',
           'Message:',
-          message || '',
+          message,
           '',
           'Helpful details:',
           '- Device model and iOS version:',
@@ -96,8 +120,27 @@
           '- Real data or example data:'
         ].join('\n');
 
-        window.location.href = 'mailto:support@fixlogapp.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        return 'mailto:support@fixlogapp.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      }
+
+      function updateMailLink() {
+        mailLink.href = buildMailto();
+      }
+
+      form.addEventListener('input', updateMailLink);
+      form.addEventListener('change', updateMailLink);
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        updateMailLink();
+        window.location.assign(mailLink.href);
       });
+
+      mailLink.addEventListener('click', function () {
+        updateMailLink();
+      });
+
+      updateMailLink();
     });
   </script>
 </body>
