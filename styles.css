@@ -61,16 +61,20 @@ a:hover {
   letter-spacing: 0;
 }
 
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  display: block;
+  flex: 0 0 34px;
+  object-fit: cover;
+}
+
 .brand-mark {
   width: 34px;
   height: 34px;
-  display: grid;
-  place-items: center;
-  color: var(--accent-ink);
-  background: var(--accent);
-  border-radius: 8px;
-  font-weight: 900;
+  display: none;
 }
+
 
 .nav-links {
   display: flex;
