@@ -28,7 +28,7 @@
         <article class="card">
           <h2>Contact</h2>
           <p>Email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>, or use the form below to open a pre-addressed email.</p>
-          <form class="contact-form" action="mailto:support@fixlogapp.com" method="post" enctype="text/plain">
+          <form class="contact-form" id="support-form">
             <label for="support-name">Name</label>
             <input id="support-name" name="name" type="text" autocomplete="name">
             <label for="support-email">Email</label>
@@ -64,5 +64,40 @@
     </section>
   </main>
   <footer class="site-footer"><div class="footer-inner"><span>FixLog</span><span><a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a></span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var form = document.getElementById('support-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var name = document.getElementById('support-name').value.trim();
+        var email = document.getElementById('support-email').value.trim();
+        var topic = document.getElementById('support-topic').value.trim();
+        var message = document.getElementById('support-message').value.trim();
+
+        var subject = 'FixLog Support - ' + (topic || 'General question');
+        var body = [
+          'Name: ' + (name || ''),
+          'Email: ' + (email || ''),
+          'Topic: ' + (topic || ''),
+          '',
+          'Message:',
+          message || '',
+          '',
+          'Helpful details:',
+          '- Device model and iOS version:',
+          '- FixLog version:',
+          '- Steps to reproduce:',
+          '- Real data or example data:'
+        ].join('
+');
+
+        window.location.href = 'mailto:support@fixlogapp.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    });
+  </script>
 </body>
 </html>
