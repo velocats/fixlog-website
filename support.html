@@ -20,6 +20,12 @@
       color: var(--muted);
       font-size: 14px;
     }
+
+    .form-success {
+      margin: 14px 0 0;
+      color: var(--good);
+      font-weight: 750;
+    }
   </style>
 </head>
 <body>
@@ -43,14 +49,18 @@
       <div class="grid two">
         <article class="card">
           <h2>Contact</h2>
-          <p>Email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>, or use the form below to open a pre-addressed email.</p>
-          <form class="contact-form" id="support-form">
+          <p>Email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>, or use the form below to send a support request.</p>
+          <form class="contact-form" id="support-form" action="https://formsubmit.co/support@fixlogapp.com" method="POST">
+            <input type="hidden" name="_subject" value="FixLog Support Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://www.fixlogapp.com/support.html?sent=true">
             <label for="support-name">Name</label>
-            <input id="support-name" name="name" type="text" autocomplete="name">
+            <input id="support-name" name="Name" type="text" autocomplete="name">
             <label for="support-email">Email</label>
-            <input id="support-email" name="email" type="email" autocomplete="email">
+            <input id="support-email" name="Email" type="email" autocomplete="email" required>
             <label for="support-topic">Topic</label>
-            <select id="support-topic" name="topic">
+            <select id="support-topic" name="Topic">
               <option>General question</option>
               <option>Feature request</option>
               <option>Bug report</option>
@@ -59,12 +69,10 @@
               <option>QR codes or labels</option>
             </select>
             <label for="support-message">Message</label>
-            <textarea id="support-message" name="message" rows="6" placeholder="Tell us what you were trying to do and what happened."></textarea>
-            <div class="form-actions">
-              <a class="button primary" id="support-mail-link" href="mailto:support@fixlogapp.com">Email Support</a>
-              <a class="button" href="mailto:support@fixlogapp.com">Open Blank Email</a>
-            </div>
-            <p class="form-helper">If your browser does not open an email app, email <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a> directly and paste your message.</p>
+            <textarea id="support-message" name="Message" rows="6" placeholder="Tell us what you were trying to do and what happened." required></textarea>
+            <button class="button primary" type="submit">Email Support</button>
+            <p class="form-helper">This form sends through FormSubmit. The first live submission may require a one-time email confirmation for <a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a>. You can also email support directly.</p>
+            <p class="form-success" id="form-success" hidden>Thanks — your support request was sent.</p>
           </form>
         </article>
         <article class="card">
@@ -88,59 +96,12 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var form = document.getElementById('support-form');
-      var mailLink = document.getElementById('support-mail-link');
+      var params = new URLSearchParams(window.location.search);
+      var success = document.getElementById('form-success');
 
-      if (!form || !mailLink) return;
-
-      function valueFor(id) {
-        var field = document.getElementById(id);
-        return field ? field.value.trim() : '';
+      if (success && params.get('sent') === 'true') {
+        success.hidden = false;
       }
-
-      function buildMailto() {
-        var name = valueFor('support-name');
-        var email = valueFor('support-email');
-        var topic = valueFor('support-topic') || 'General question';
-        var message = valueFor('support-message');
-
-        var subject = 'FixLog Support - ' + topic;
-        var body = [
-          'Name: ' + name,
-          'Email: ' + email,
-          'Topic: ' + topic,
-          '',
-          'Message:',
-          message,
-          '',
-          'Helpful details:',
-          '- Device model and iOS version:',
-          '- FixLog version:',
-          '- Steps to reproduce:',
-          '- Real data or example data:'
-        ].join('\n');
-
-        return 'mailto:support@fixlogapp.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      }
-
-      function updateMailLink() {
-        mailLink.href = buildMailto();
-      }
-
-      form.addEventListener('input', updateMailLink);
-      form.addEventListener('change', updateMailLink);
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        updateMailLink();
-        window.location.assign(mailLink.href);
-      });
-
-      mailLink.addEventListener('click', function () {
-        updateMailLink();
-      });
-
-      updateMailLink();
     });
   </script>
 </body>
