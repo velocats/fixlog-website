@@ -166,26 +166,19 @@ h1 {
   gap: 12px;
 }
 
-.hero-example-pills {
-  margin-top: 22px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.hero-examples {
   max-width: 760px;
+  margin: 20px 0 0;
+  color: rgba(232, 238, 247, 0.82);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.hero-example-pills span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 34px;
-  padding: 7px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  color: #eef5ff;
-  font-size: 14px;
-  font-weight: 750;
-  backdrop-filter: blur(10px);
+.hero-examples span {
+  display: inline-block;
+  margin: 0 8px;
+  color: rgba(201, 216, 238, 0.48);
 }
 
 .section {
@@ -590,12 +583,13 @@ body.lightbox-open {
     padding: 48px 18px 58px;
   }
 
-  .hero-example-pills {
-    gap: 8px;
+  .hero-examples {
+    font-size: 13px;
+    line-height: 1.7;
   }
 
-  .hero-example-pills span {
-    font-size: 13px;
+  .hero-examples span {
+    margin: 0 5px;
   }
 
   .grid,
