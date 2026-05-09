@@ -114,11 +114,11 @@ a:hover {
 }
 
 .hero {
-  min-height: 600px;
+  min-height: 430px;
   display: grid;
   align-items: center;
-  background: linear-gradient(rgba(21, 31, 43, 0.56), rgba(21, 31, 43, 0.42)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='760' viewBox='0 0 1400 760'%3E%3Crect width='1400' height='760' fill='%23384758'/%3E%3Cg fill='none' stroke='%23e7efe7' stroke-opacity='.28' stroke-width='3'%3E%3Cpath d='M0 560h1400M80 130h1180M160 220h980M210 660h850'/%3E%3Cpath d='M190 120v540M460 120v540M780 120v540M1080 120v540'/%3E%3C/g%3E%3Cg fill='%23f6f8fb' fill-opacity='.16'%3E%3Crect x='230' y='170' width='180' height='90' rx='10'/%3E%3Crect x='520' y='170' width='220' height='90' rx='10'/%3E%3Crect x='830' y='170' width='190' height='90' rx='10'/%3E%3Crect x='250' y='330' width='260' height='120' rx='10'/%3E%3Crect x='610' y='330' width='240' height='120' rx='10'/%3E%3Crect x='930' y='330' width='220' height='120' rx='10'/%3E%3C/g%3E%3C/svg%3E");
+  background: linear-gradient(rgba(21, 31, 43, 0.62), rgba(21, 31, 43, 0.48)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1400' height='760' viewBox='0 0 1400 760'%3E%3Crect width='1400' height='760' fill='%23384758'/%3E%3Cg fill='none' stroke='%23e7efe7' stroke-opacity='.16' stroke-width='3'%3E%3Cpath d='M0 560h1400M80 130h1180M160 220h980M210 660h850'/%3E%3Cpath d='M190 120v540M460 120v540M780 120v540M1080 120v540'/%3E%3C/g%3E%3Cg fill='%23f6f8fb' fill-opacity='.10'%3E%3Crect x='230' y='170' width='180' height='90' rx='10'/%3E%3Crect x='520' y='170' width='220' height='90' rx='10'/%3E%3Crect x='830' y='170' width='190' height='90' rx='10'/%3E%3Crect x='250' y='330' width='260' height='120' rx='10'/%3E%3Crect x='610' y='330' width='240' height='120' rx='10'/%3E%3Crect x='930' y='330' width='220' height='120' rx='10'/%3E%3C/g%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
   color: white;
@@ -127,7 +127,7 @@ a:hover {
 .hero-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 88px 22px 118px;
+  padding: 58px 22px 70px;
 }
 
 .eyebrow {
@@ -153,17 +153,39 @@ h1 {
 }
 
 .hero-copy {
-  max-width: 650px;
-  margin: 22px 0 0;
+  max-width: 690px;
+  margin: 18px 0 0;
   color: #e8eef7;
   font-size: 20px;
 }
 
 .hero-actions {
-  margin-top: 30px;
+  margin-top: 26px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.hero-example-pills {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 760px;
+}
+
+.hero-example-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #eef5ff;
+  font-size: 14px;
+  font-weight: 750;
+  backdrop-filter: blur(10px);
 }
 
 .section {
@@ -561,7 +583,19 @@ body.lightbox-open {
   }
 
   .hero {
-    min-height: 560px;
+    min-height: 460px;
+  }
+
+  .hero-inner {
+    padding: 48px 18px 58px;
+  }
+
+  .hero-example-pills {
+    gap: 8px;
+  }
+
+  .hero-example-pills span {
+    font-size: 13px;
   }
 
   .grid,
