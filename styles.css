@@ -538,6 +538,44 @@ body.lightbox-open {
   font-weight: 900;
 }
 
+.release-notes-list {
+  display: grid;
+  gap: 18px;
+}
+
+.featured-release {
+  border-color: rgba(49, 95, 141, 0.34);
+  box-shadow: 0 18px 44px rgba(49, 95, 141, 0.10);
+}
+
+.space-example-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+.space-example-grid span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f3f6f9;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.release h2 {
+  margin-top: 0;
+}
+
+.release h3 {
+  margin: 22px 0 8px;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   background: var(--panel);
@@ -576,6 +614,10 @@ body.lightbox-open {
   .screenshot-grid.tablet-grid,
   .release {
     grid-template-columns: 1fr;
+  }
+
+  .space-example-grid {
+    gap: 8px;
   }
 
   .section {
