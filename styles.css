@@ -71,24 +71,21 @@ a:hover { text-decoration: underline; }
 .appstore-badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-height: 50px;
-  padding: 10px 20px;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
   background: #000;
   color: #fff;
-  border-radius: 10px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid #000;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 750;
   text-decoration: none;
 }
 .appstore-badge:hover { background: #1a1a1a; text-decoration: none; }
-.appstore-badge svg { flex: 0 0 22px; }
-.appstore-badge-text { display: flex; flex-direction: column; line-height: 1.2; }
-.appstore-badge-text small { font-size: 10px; font-weight: 400; opacity: 0.8; }
 
 .hero {
-  min-height: 600px;
+  min-height: 320px;
   display: grid;
   align-items: center;
   background: linear-gradient(rgba(21,31,43,0.56),rgba(21,31,43,0.42)),
@@ -98,7 +95,7 @@ a:hover { text-decoration: underline; }
   color: white;
 }
 
-.hero-inner { max-width: 1120px; margin: 0 auto; padding: 88px 22px 118px; }
+.hero-inner { max-width: 1120px; margin: 0 auto; padding: 52px 22px 60px; }
 
 .eyebrow { margin: 0 0 14px; color: #c9d8ee; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 h1, h2, h3 { line-height: 1.08; letter-spacing: 0; }
@@ -278,7 +275,7 @@ code { padding: 2px 6px; border-radius: 6px; background: #eef3f8; color: var(--i
 
 .page-hero { background: #101923; color: white; }
 .page-hero .section { padding-top: 74px; padding-bottom: 74px; }
-.page-hero p { max-width: 760px; color: #d9e4f2; font-size: 19px; }
+.page-hero p { max-width: 760px; color: #d9e4f2; font-size: 17px; }
 
 .price { font-size: clamp(54px,9vw,92px); line-height: 1; font-weight: 900; margin: 12px 0; }
 .notice { border-left: 5px solid var(--accent); background: var(--panel); padding: 18px 20px; border-radius: 8px; }
@@ -343,3 +340,21 @@ code { padding: 2px 6px; border-radius: 6px; background: #eef3f8; color: var(--i
   .space-example-grid { gap: 8px; }
   .section { padding: 52px 18px; }
 }
+
+/* Scenario cards (used on homepage and how-it-works) */
+.scenario-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+}
+.scenario-icon { font-size: 32px; margin-bottom: 10px; display: block; }
+.scenario-card h3 { margin: 0 0 8px; font-size: 19px; }
+.scenario-card p { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+.space-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.space-tag {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+  background: #eef3f8; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 13px; font-weight: 700; color: var(--ink);
+}
+.space-tag.active-tag { background: #dce8f5; border-color: #b0cce8; color: var(--accent); }
