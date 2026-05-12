@@ -85,7 +85,7 @@ a:hover { text-decoration: underline; }
 .appstore-badge:hover { background: #1a1a1a; text-decoration: none; }
 
 .hero {
-  min-height: 320px;
+  min-height: 100px;
   display: grid;
   align-items: center;
   background: linear-gradient(rgba(21,31,43,0.56),rgba(21,31,43,0.42)),
@@ -95,7 +95,7 @@ a:hover { text-decoration: underline; }
   color: white;
 }
 
-.hero-inner { max-width: 1120px; margin: 0 auto; padding: 52px 22px 60px; }
+.hero-inner { max-width: 1120px; margin: 0 auto; padding: 28px 22px 32px; }
 
 .eyebrow { margin: 0 0 14px; color: #c9d8ee; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
 h1, h2, h3 { line-height: 1.08; letter-spacing: 0; }
@@ -275,7 +275,7 @@ code { padding: 2px 6px; border-radius: 6px; background: #eef3f8; color: var(--i
 
 .page-hero { background: #101923; color: white; }
 .page-hero .section { padding-top: 74px; padding-bottom: 74px; }
-.page-hero p { max-width: 760px; color: #d9e4f2; font-size: 17px; }
+.page-hero p { max-width: 760px; color: #d9e4f2; font-size: 15px; margin: 6px 0 0; }
 
 .price { font-size: clamp(54px,9vw,92px); line-height: 1; font-weight: 900; margin: 12px 0; }
 .notice { border-left: 5px solid var(--accent); background: var(--panel); padding: 18px 20px; border-radius: 8px; }
@@ -358,3 +358,26 @@ code { padding: 2px 6px; border-radius: 6px; background: #eef3f8; color: var(--i
   font-size: 13px; font-weight: 700; color: var(--ink);
 }
 .space-tag.active-tag { background: #dce8f5; border-color: #b0cce8; color: var(--accent); }
+
+/* Compact page hero heading */
+.page-hero h1 {
+  font-size: clamp(20px, 2.8vw, 30px);
+  margin: 4px 0 0;
+  line-height: 1.15;
+}
+
+/* Nav download button */
+.nav-download {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-download:hover { background: #264d75; text-decoration: none; }
