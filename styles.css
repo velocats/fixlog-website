@@ -437,3 +437,8 @@ code { padding: 2px 6px; border-radius: 6px; background: #eef3f8; color: var(--i
   font-size: 11px;
   margin: 0 0 4px;
 }
+
+/* Prevent awkward word wraps on headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
