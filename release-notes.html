@@ -13,7 +13,12 @@
     <nav class="nav">
       <a class="brand" href="index.html"><img class="brand-logo" src="assets/branding/fixlog-logo-1024.png" alt="FixLog logo"><span>FixLog</span></a>
       <div class="nav-links">
-        <a href="index.html">Home</a><a href="features.html">Features</a><a href="screenshots.html">Screenshots</a><a href="qr-codes.html">QR Codes</a><a href="help.html">Help</a><a href="pricing.html">Pricing</a><a class="active" href="release-notes.html">Release Notes</a><a href="support.html">Support</a>
+        <a href="index.html">Home</a>
+        <a href="for-homeowners.html">For Homeowners</a>
+        <a href="for-businesses.html">For Businesses</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
       </div>
     </nav>
   </header>
@@ -30,56 +35,73 @@
       <article class="card release featured-release">
         <div class="version">1.1.1</div>
         <div>
-          <p class="eyebrow dark">Major Home, Business, Cost, and Spaces Update</p>
-          <h2>More sample data, better setup, richer cost tracking, and stronger maintenance workflows.</h2>
-          <p>FixLog 1.1.1 expands the app for both home and business use with separate setup paths, richer sample Spaces, new cost tracking charts, improved reminders, better asset history, storage management, and Pro purchase access from Settings.</p>
+          <p class="eyebrow dark">UX, Templates &amp; Home Screen Update</p>
+          <h2>Redesigned home screen, 263-asset template library, tighter UI across all tabs, and new document features.</h2>
+          <p>Version 1.1.1 is a significant UX update focused on reducing visual noise, surfacing actionable information on the home screen, and making it faster to add assets with an intelligent template system.</p>
 
-          <h3>Home and business setup</h3>
+          <h3>Home Screen</h3>
           <ul class="list">
-            <li>Added Home vs Business setup direction with separate sample data paths.</li>
-            <li>Kept the existing Mountain Peak Brewing business sample.</li>
-            <li>Added a new Maple Ridge Home sample for homeowner-focused setup.</li>
-            <li>Expanded both sample sets to 30 assets each.</li>
-            <li>Updated onboarding and help wording around small business use and sample data.</li>
+            <li>Replaced the large hero card with a compact tappable status bar: Overdue · Upcoming · Out of Service · Assets.</li>
+            <li>Added Out of Service section — unavailable assets now surface directly on the home screen.</li>
+            <li>Added Warranty Watch section — assets with warranties expiring within 90 days shown sorted by soonest first.</li>
+            <li>Needs Attention now shows 5 reminders, up from 3, without the redundant pill row.</li>
+            <li>Removed the Quick Actions grid — those actions are already in the toolbar and tab bar.</li>
           </ul>
 
-          <h3>Richer sample data</h3>
+          <h3>Asset Templates</h3>
           <ul class="list">
-            <li>Added richer sample asset details, including locations, groups, vendors, warranty dates, purchase cost, replacement cost, notes, fields, reminders, and maintenance history.</li>
-            <li>Added multi-year sample cost data so charts feel alive.</li>
-            <li>Updated sample cost data so the year chart has data in every month.</li>
+            <li>New template library with 263 asset templates across 21 business types.</li>
+            <li>Business type selector available in Settings and inline in the Add Asset form via a compact picker.</li>
+            <li>Browse Templates sheet is searchable and grouped by category, filtered to the selected business type.</li>
+            <li>~80 common assets include curated suggested reminders — editable before saving, created automatically on save.</li>
+            <li>~50 asset types pre-populate custom fields with labels and placeholder hints.</li>
           </ul>
 
-          <h3>Cost tracking</h3>
+          <h3>UI Improvements</h3>
           <ul class="list">
-            <li>Added cost tracking with charts for spend trends, Spaces, locations, vendors, maintenance types, asset value, and replacement exposure.</li>
-            <li>Added dropdown filters in Cost Tracking for Space and then matching Location.</li>
+            <li>Assets, Due, and all report screens: FixLog logo added to nav bar title. Empty large-title gaps fixed.</li>
+            <li>FixLog brand card removed from the top of Assets, Due, and all report screens.</li>
+            <li>Assets filters: 4 tall picker rows collapsed into a compact 2×2 chip grid.</li>
+            <li>Due reminder rows: compacted to 2 lines, roughly doubling visible reminders per screen.</li>
+            <li>Add Asset form: Manufacturer and Warranty sections collapse by default.</li>
+            <li>Reports tab: reorganized into Maintenance, Analysis, and Documents sections.</li>
+            <li>Maintenance trend chart: Spend is now green, Completed is purple.</li>
+            <li>"Critical:" prefix stripped from reminder titles in list views — the OVERDUE pill already communicates urgency. Data unchanged.</li>
           </ul>
 
-          <h3>Assets, warranties, and storage</h3>
+          <h3>Documents</h3>
           <ul class="list">
-            <li>Added warranty countdown access through Assets.</li>
-            <li>Added storage management in Settings for large images and documents.</li>
-            <li>Moved maintenance entries higher on the Asset screen.</li>
-            <li>Made long maintenance histories collapsible after the most recent three entries.</li>
-            <li>Added asset support for up to 10 photos, with clearer “save first, then add photos” behavior.</li>
+            <li>PDF attachment available directly in the Add Asset form (Pro).</li>
+            <li>"Attach Warranty PDF" button added inside the Warranty section on Asset Detail — categorized as Warranty automatically.</li>
+            <li>Asset rows now show a document count badge when non-photo documents are attached.</li>
           </ul>
 
-          <h3>Reminders and backups</h3>
+          <h3>Bug Fixes</h3>
           <ul class="list">
-            <li>Improved reminders with visible Complete buttons.</li>
-            <li>Added multi-select complete and delete actions on Due.</li>
-            <li>Reminder completion now logs into maintenance history by default.</li>
-            <li>Added the default FixLog Backup asset and weekly backup reminder.</li>
-            <li>Replaced Home screen “Due Today” with Upcoming, showing the next three non-overdue reminders no matter how far out.</li>
+            <li>Camera permission button changed from "Allow Camera Access" to "Continue" per App Store Guideline 5.1.1(iv).</li>
+            <li>Demo asset images now load from the bundled SampleAssetImages folder instead of low-quality base64 blobs.</li>
+            <li>Fixed crash when browsing templates caused by a duplicate dictionary key.</li>
+            <li>Replaced iOS 18-only SF Symbols with iOS 17-compatible equivalents.</li>
+            <li>Fixed empty Picker selection warning on first launch.</li>
           </ul>
+        </div>
+      </article>
 
-          <h3>Purchase and polish</h3>
+      <article class="card release">
+        <div class="version">1.1.1<span style="font-size:14px;font-weight:400;color:var(--muted);margin-left:8px;">prior update</span></div>
+        <div>
+          <p class="eyebrow dark">Home, Business, Cost, and Spaces Update</p>
+          <h2>Home setup path, richer sample data, cost tracking charts, and stronger maintenance workflows.</h2>
+          <p>Added Home vs Business setup direction with separate sample data, expanded sample sets to 30 assets each, cost tracking with charts, warranty countdown, storage management, and Pro purchase access from Settings.</p>
+
+          <h3>What changed</h3>
           <ul class="list">
-            <li>Added debug and Pro purchase work, including product ID <code>com.quiettools.fixlog.pro</code>.</li>
-            <li>Added purchase access in Settings.</li>
-            <li>Improved several modal and edit screens to use larger presentation sizes.</li>
-            <li>Fixed build issues as they came up, including StoreKit import, CSV actor isolation, asset search logic, and form complexity problems.</li>
+            <li>Added Maple Ridge Home sample alongside Mountain Peak Brewing.</li>
+            <li>Cost tracking with charts for spend by Space, location, vendor, type, and time.</li>
+            <li>Multi-select complete and delete on the Due screen.</li>
+            <li>Reminder completion logs to maintenance history by default.</li>
+            <li>Up to 10 photos per asset, storage management in Settings.</li>
+            <li>Warranty Countdown accessible through Assets and Reports.</li>
           </ul>
         </div>
       </article>
@@ -102,11 +124,9 @@
 
           <h3>What changed</h3>
           <ul class="list">
-            <li>Create and switch between multiple Spaces, such as a home, cabin, rental property, workshop, RV, or business.</li>
+            <li>Create and switch between multiple Spaces such as a home, cabin, rental property, workshop, RV, or business.</li>
             <li>Each Space keeps its own assets, reminders, documents, maintenance history, and records separate.</li>
-            <li>Homeowner onboarding and example data now better fit home and property maintenance.</li>
-            <li>Backups now support multi-space data so your Spaces and related records stay together.</li>
-            <li>App wording has been cleaned up so FixLog feels useful for homes, businesses, workshops, and property owners.</li>
+            <li>Backups support multi-space data.</li>
           </ul>
         </div>
       </article>
@@ -118,21 +138,25 @@
           <p>FixLog 1.0 introduced practical maintenance tracking for small businesses, owner-operated teams, and people who need a better way to remember service history.</p>
           <h3>Highlights</h3>
           <ul class="list">
-            <li>Create asset records for equipment, tools, rooms, vehicles, systems, and facility items.</li>
-            <li>Track maintenance history with type, service date, notes, parts, cost, labor time, and photos.</li>
-            <li>Create maintenance reminders with due dates, recurrence, completion, snooze, and status tracking.</li>
-            <li>Use maintenance templates and checklists for repeatable work.</li>
-            <li>Generate and scan QR codes for assets.</li>
-            <li>Organize assets with locations and flexible groups.</li>
-            <li>Attach photos and PDF documents to assets.</li>
-            <li>Export asset CSV, maintenance CSV, reminder CSV, QR labels, asset reports, and backup files.</li>
-            <li>Explore a fully populated sample company.</li>
-            <li>Unlock Pro with a one-time purchase.</li>
+            <li>Asset records for equipment, tools, rooms, vehicles, systems, and facility items.</li>
+            <li>Maintenance history with type, service date, notes, parts, cost, and photos.</li>
+            <li>Maintenance reminders with due dates, recurrence, completion, and snooze.</li>
+            <li>Maintenance templates and checklists for repeatable work.</li>
+            <li>QR code generation and scanning.</li>
+            <li>Locations, groups, documents, and CSV export.</li>
+            <li>One-time Pro unlock.</li>
           </ul>
         </div>
       </article>
     </section>
   </main>
-  <footer class="site-footer"><div class="footer-inner"><span>FixLog</span><span><a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a></span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div></footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>FixLog</span>
+      <span><a href="for-homeowners.html">Homeowners</a> · <a href="for-businesses.html">Businesses</a> · <a href="features.html">Features</a> · <a href="qr-codes.html">QR Codes</a> · <a href="help.html">Help</a></span>
+      <span><a href="mailto:support@fixlogapp.com">support@fixlogapp.com</a></span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+    </div>
+  </footer>
 </body>
 </html>
