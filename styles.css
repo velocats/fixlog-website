@@ -348,7 +348,30 @@ main:focus { outline: none; }
 .screenshot-note { margin: 0 0 10px; color: inherit; opacity: .70; font-size: 13px; line-height: 1.35; }
 .device-phone { max-width: 272px; margin: 0 auto; }
 .device-tablet { width: 100%; max-width: 640px; margin: 0 auto; }
+.device-mac { width: 100%; max-width: 720px; margin: 0 auto; }
 .screenshot-grid img { height: 420px; object-fit: cover; object-position: top; }
+.appstore-gallery { align-items: stretch; }
+.appstore-gallery .screenshot-card { display: flex; flex-direction: column; }
+.appstore-gallery .screenshot-card img {
+  height: auto;
+  margin-top: auto;
+  object-fit: contain;
+}
+.appstore-gallery.phone-gallery { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.appstore-gallery.phone-gallery .device-phone { max-width: none; }
+.platform-jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.platform-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  font-weight: 850;
+}
+.platform-jump a:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
 .center-action { text-align: center; margin: 28px 0 0; }
 
 .page-hero {
@@ -444,6 +467,7 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
 
 @media (max-width: 980px) {
   .grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .appstore-gallery.phone-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hero-split, .product-panel { grid-template-columns: 1fr; }
   .hero-showcase { min-height: 500px; }
   .product-panel { padding: 28px; }
@@ -462,7 +486,7 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
   .hero-showcase { display: none; }
   .section { padding: 54px 18px; }
   .section.tight { padding-top: 34px; padding-bottom: 34px; }
-  .grid, .grid.two, .grid.four, .screenshot-strip, .screenshot-grid, .screenshot-grid.tablet-grid, .screenshot-grid.four-col, .audience-split, .space-flow-grid, .release { grid-template-columns: 1fr; }
+  .grid, .grid.two, .grid.four, .screenshot-strip, .screenshot-grid, .screenshot-grid.tablet-grid, .screenshot-grid.four-col, .appstore-gallery.phone-gallery, .audience-split, .space-flow-grid, .release { grid-template-columns: 1fr; }
   .audience-card + .audience-card { border-left: 1px solid var(--line); }
   .trust-strip { border-radius: var(--radius-sm); justify-content: flex-start; }
   .product-panel { border-radius: 24px; padding: 22px; }
