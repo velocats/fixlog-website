@@ -538,7 +538,10 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
   .audience-card + .audience-card { border-left: 1px solid var(--line); }
   .trust-strip { border-radius: var(--radius-sm); justify-content: flex-start; }
   .product-panel, .service-provider-feature { border-radius: 24px; padding: 22px; }
-  .provider-screenshot-pair { grid-template-columns: 1fr; }
+  .provider-screenshot-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .provider-screenshot-pair .screenshot-card { padding: 10px; }
+  .provider-screenshot-pair .screenshot-caption { font-size: 12px; }
+  .provider-screenshot-pair .screenshot-note { font-size: 12px; }
   .tablet-frame { transform: none; }
   .page-hero .section { padding-top: 62px; padding-bottom: 62px; }
   .page-hero h1 { font-size: clamp(36px, 10vw, 50px); }
