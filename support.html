@@ -65,12 +65,13 @@
           <form class="contact-form" id="support-form" action="https://formsubmit.co/support@fixlogapp.com" method="POST">
             <input type="hidden" name="_subject" value="FixLog Support Request">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_next" value="https://www.fixlogapp.com/support.html?sent=true">
+            <input type="hidden" name="_autoresponse" value="We received your FixLog support request. Thanks for reaching out — we’ll review it and reply as soon as we can.">
             <label for="support-name">Name</label>
             <input id="support-name" name="Name" type="text" autocomplete="name">
             <label for="support-email">Email <span aria-hidden="true">(required)</span></label>
-            <input id="support-email" name="Email" type="email" autocomplete="email" aria-describedby="support-email-help" required>
+            <input id="support-email" name="email" type="email" autocomplete="email" aria-describedby="support-email-help" required>
             <p class="form-helper" id="support-email-help">Use the email address where you want the reply sent.</p>
             <label for="support-topic">Topic</label>
             <select id="support-topic" name="Topic">
