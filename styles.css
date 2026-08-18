@@ -574,12 +574,14 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
 .product-panel .screenshot-card.device-tablet { max-width: 100%; }
 
 /* ── Story sections: a real screen carries the point, no card wrapper ─── */
-.story-block { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr); gap: 48px; align-items: center; }
+.story-block { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr); gap: 48px; align-items: start; }
 .story-block.reverse .story-media { order: 2; }
+.story-block-second { margin-top: 56px; }
 .story-copy p.eyebrow { margin-bottom: 10px; }
 .story-copy h2 { font-size: clamp(28px, 3.6vw, 44px); margin: 0 0 14px; }
 .story-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; max-width: 46ch; }
-.story-media { margin: 0 auto; max-width: 320px; }
+.story-media { margin: 0 auto; max-width: 250px; }
+.story-copy { padding-top: 8px; }
 .story-media img { display: block; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
 .story-media figcaption { margin: 10px 2px 0; color: var(--muted); font-size: 13px; }
 
