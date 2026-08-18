@@ -20,8 +20,10 @@
   --focus: #b45309;
   --shadow: 0 22px 70px rgba(15, 37, 64, 0.12);
   --shadow-soft: 0 12px 40px rgba(15, 37, 64, 0.08);
+  --radius-lg: 30px;
   --radius: 22px;
   --radius-sm: 14px;
+  --radius-pill: 999px;
 }
 
 * { box-sizing: border-box; }
@@ -31,9 +33,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 10% 0%, rgba(127,178,223,0.22), transparent 32rem),
-    linear-gradient(180deg, #f8fbff 0%, var(--paper) 42%, #f4f6f8 100%);
+  background: var(--paper);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
@@ -106,8 +106,7 @@ main:focus { outline: none; }
 }
 .nav-menu-toggle span { display: block; width: 20px; height: 2px; border-radius: 999px; background: currentColor; }
 
-.button,
-.appstore-badge {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -120,29 +119,18 @@ main:focus { outline: none; }
   color: var(--ink);
   box-shadow: 0 8px 22px rgba(15,37,64,0.06);
 }
-.button:hover,
-.appstore-badge:hover { text-decoration: none; transform: translateY(-1px); }
+.button:hover { text-decoration: none; transform: translateY(-1px); }
 .button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.appstore-badge { background: #050505; color: #fff; border-color: #050505; }
 .hero-secondary { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.28); color: #fff; box-shadow: none; }
 .hero-secondary:hover { background: rgba(255,255,255,0.18); }
-.nav-appstore-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: #050505;
-  color: #fff !important;
-  border-radius: 999px;
-  padding: 7px 13px;
-  text-decoration: none;
-  white-space: nowrap;
-  border: 1px solid #050505;
-}
-.nav-appstore-badge:hover { background: #1a1a1a; text-decoration: none; }
-.nav-appstore-badge svg { flex: 0 0 17px; width: 17px; height: 21px; }
-.nav-appstore-badge-text { display: flex; flex-direction: column; line-height: 1.05; }
-.nav-appstore-badge-text small { font-size: 8px; font-weight: 500; opacity: 0.82; }
-.nav-appstore-badge-text span { font-size: 13px; font-weight: 800; }
+
+/* Official Apple "Download on the App Store" badge (assets/branding/app-store-badge-black.svg). */
+.appstore-badge,
+.nav-appstore-badge { display: inline-flex; align-items: center; line-height: 0; transition: opacity 0.14s ease, transform 0.14s ease; }
+.appstore-badge:hover,
+.nav-appstore-badge:hover { opacity: 0.82; text-decoration: none; transform: translateY(-1px); }
+.badge-img { display: block; width: auto; height: 48px; }
+.badge-img-nav { height: 32px; }
 
 .hero {
   position: relative;
@@ -178,19 +166,18 @@ main:focus { outline: none; }
 .hero-pills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
 .hero-pills span { color: #dceeff; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.16); padding: 7px 11px; border-radius: 999px; font-size: 13px; font-weight: 750; }
 .hero-support { max-width: 700px; margin: 18px 0 0; color: #dbeafe; font-weight: 650; }
-.hero-showcase { position: relative; min-height: 560px; display: grid; place-items: center; }
+.hero-showcase { position: relative; display: grid; place-items: center; }
 .phone-frame,
 .tablet-frame {
-  background: linear-gradient(180deg, #f8fbff, #e8eff7);
-  border: 1px solid rgba(255,255,255,0.28);
-  border-radius: 38px;
-  padding: 11px;
-  box-shadow: 0 38px 100px rgba(0,0,0,0.42), inset 0 0 0 1px rgba(255,255,255,0.28);
+  background: #f4f7fb;
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.28);
 }
 .phone-frame img,
-.tablet-frame img { display: block; width: 100%; border-radius: 28px; box-shadow: inset 0 0 0 1px rgba(15,37,64,0.08); }
-.phone-main { width: 285px; transform: rotate(-2.5deg) translateX(-38px); z-index: 2; }
-.phone-side { position: absolute; width: 236px; right: 4%; bottom: 22px; opacity: 0.92; transform: rotate(5deg); }
+.tablet-frame img { display: block; width: 100%; border-radius: calc(var(--radius-lg) - 8px); box-shadow: inset 0 0 0 1px rgba(15,37,64,0.08); }
+.phone-main { width: 100%; max-width: 340px; }
 
 .section { padding-top: 76px; padding-bottom: 76px; }
 .section.tight { padding-top: 46px; padding-bottom: 46px; }
@@ -245,10 +232,9 @@ main:focus { outline: none; }
   gap: 32px;
   align-items: center;
   padding: 32px;
-  border: 1px solid rgba(47,102,147,0.30);
-  border-radius: 28px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, #eef6fd 100%);
-  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
 }
 .service-provider-copy h2 {
   margin: 0 0 12px;
@@ -295,10 +281,9 @@ main:focus { outline: none; }
   gap: 42px;
   align-items: center;
   padding: 42px;
-  border-radius: 34px;
-  background: linear-gradient(135deg, #ffffff 0%, #eef6fd 100%);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
   border: 1px solid var(--line);
-  box-shadow: var(--shadow);
 }
 .product-copy h2 { font-size: clamp(32px, 4vw, 52px); margin-bottom: 14px; }
 .product-copy > p { color: var(--muted); font-size: 18px; }
@@ -307,8 +292,8 @@ main:focus { outline: none; }
 .workflow-list span { grid-row: 1 / span 2; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 14px; background: #dbeafe; color: var(--accent-2); font-weight: 900; }
 .workflow-list strong { font-size: 17px; }
 .workflow-list p { margin: 3px 0 0; color: var(--muted); font-size: 15px; }
-.tablet-frame { border-radius: 28px; padding: 10px; transform: rotate(1.2deg); }
-.tablet-frame img { border-radius: 20px; max-height: 560px; object-fit: cover; object-position: top; }
+.tablet-frame { border-radius: var(--radius-lg); padding: 10px; }
+.tablet-frame img { border-radius: calc(var(--radius-lg) - 8px); max-height: 560px; object-fit: cover; object-position: top; }
 
 .audience-split { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .audience-split.modern { border: 0; box-shadow: none; overflow: visible; }
@@ -437,12 +422,11 @@ main:focus { outline: none; }
 .final-cta {
   text-align: center;
   padding: 54px 34px;
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at 85% 15%, rgba(127,178,223,0.32), transparent 18rem),
-    linear-gradient(135deg, #ffffff 0%, #edf6ff 100%);
-  box-shadow: var(--shadow);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  border: 1px solid var(--line);
 }
+.final-plain { text-align: center; max-width: 640px; margin: 0 auto; }
 .final-cta h2 { margin: 8px 0 12px; font-size: clamp(30px, 4.8vw, 58px); }
 .final-cta p:not(.eyebrow) { max-width: 700px; margin: 0 auto 26px; color: var(--muted); font-size: 18px; }
 .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
@@ -517,7 +501,8 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
   .grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .appstore-gallery.phone-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .hero-split, .product-panel, .service-provider-feature { grid-template-columns: 1fr; }
-  .hero-showcase { min-height: 500px; }
+  .hero-showcase { order: -1; }
+  .phone-main { max-width: 260px; }
   .product-panel { padding: 28px; }
   .footer-inner { grid-template-columns: 1fr; }
 }
@@ -529,23 +514,22 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
   .site-header.nav-open .nav-links { display: flex; }
   .nav-links a:not(.nav-appstore-badge) { width: 100%; min-height: 42px; display: flex; align-items: center; padding: 8px 10px; border-radius: 12px; background: rgba(255,255,255,0.65); }
   .nav-appstore-badge { width: 100%; justify-content: center; margin-top: 4px; }
-  .hero-inner { padding: 58px 18px 74px; }
-  .hero h1 { font-size: clamp(42px, 12vw, 58px); }
-  .hero-showcase { display: none; }
+  .hero-inner { padding: 40px 18px 56px; }
+  .hero h1 { font-size: clamp(38px, 11vw, 52px); }
+  .phone-main { max-width: 220px; }
   .section { padding: 54px 18px; }
   .section.tight { padding-top: 34px; padding-bottom: 34px; }
   .grid, .grid.two, .grid.four, .screenshot-strip, .screenshot-grid, .screenshot-grid.tablet-grid, .screenshot-grid.four-col, .appstore-gallery.phone-gallery, .audience-split, .space-flow-grid, .release { grid-template-columns: 1fr; }
   .audience-card + .audience-card { border-left: 1px solid var(--line); }
   .trust-strip { border-radius: var(--radius-sm); justify-content: flex-start; }
-  .product-panel, .service-provider-feature { border-radius: 24px; padding: 22px; }
+  .product-panel, .service-provider-feature { border-radius: var(--radius); padding: 22px; }
   .provider-screenshot-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .provider-screenshot-pair .screenshot-card { padding: 10px; }
   .provider-screenshot-pair .screenshot-caption { font-size: 12px; }
   .provider-screenshot-pair .screenshot-note { font-size: 12px; }
-  .tablet-frame { transform: none; }
   .page-hero .section { padding-top: 62px; padding-bottom: 62px; }
   .page-hero h1 { font-size: clamp(36px, 10vw, 50px); }
-  .final-cta { padding: 34px 20px; border-radius: 24px; }
+  .final-cta { padding: 34px 20px; border-radius: var(--radius); }
   .screenshot-grid img { height: auto; }
 }
 
@@ -558,4 +542,51 @@ code { padding: 2px 6px; border-radius: 7px; background: #eaf3fc; color: var(--i
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ── Breadcrumbs, long-form guides, related links ───────────── */
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 18px; font-size: 13px; font-weight: 750; }
+.breadcrumb a { color: #cfe1f4; }
+.breadcrumb span[aria-current] { color: #ffffff; opacity: 0.72; }
+.breadcrumb-sep { color: rgba(255,255,255,0.34); }
+
+.prose { max-width: 68ch; }
+.prose h2 { margin: 44px 0 12px; font-size: clamp(26px, 3.2vw, 36px); }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { margin: 30px 0 8px; font-size: 20px; }
+.prose p { margin: 0 0 16px; color: #33404f; font-size: 18px; line-height: 1.62; }
+.prose ul { margin: 0 0 16px; padding-left: 22px; color: #33404f; font-size: 18px; line-height: 1.62; }
+.prose li { margin: 8px 0; }
+
+.related-links { max-width: 68ch; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+.related-links h2 { margin: 0 0 12px; font-size: 18px; }
+.related-links ul { margin: 0; padding-left: 20px; }
+.related-links li { margin: 7px 0; font-weight: 700; }
+
+@media (max-width: 720px) {
+  .prose p, .prose ul { font-size: 17px; }
+}
+
+/* Product panels on landing pages present App Store panels rather than bare
+   device frames, so give the media column enough width to stay readable. */
+.product-panel .screenshot-card { width: 100%; }
+.product-panel .screenshot-card.device-phone { max-width: 420px; }
+.product-panel .screenshot-card.device-tablet { max-width: 100%; }
+
+/* ── Story sections: a real screen carries the point, no card wrapper ─── */
+.story-block { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr); gap: 48px; align-items: center; }
+.story-block.reverse .story-media { order: 2; }
+.story-copy p.eyebrow { margin-bottom: 10px; }
+.story-copy h2 { font-size: clamp(28px, 3.6vw, 44px); margin: 0 0 14px; }
+.story-copy p:not(.eyebrow) { color: var(--muted); font-size: 18px; max-width: 46ch; }
+.story-media img { display: block; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
+.story-media figcaption { margin: 10px 2px 0; color: var(--muted); font-size: 13px; }
+.story-media { margin: 0; }
+
+.privacy-line { display: flex; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 18px 0; color: var(--muted); font-size: 15px; font-weight: 650; }
+.privacy-line strong { color: var(--ink); }
+
+@media (max-width: 980px) {
+  .story-block, .story-block.reverse { grid-template-columns: 1fr; }
+  .story-block.reverse .story-media { order: 0; }
 }
